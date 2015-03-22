@@ -14,6 +14,15 @@
 # limitations under the License.
 #
 
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.ota.romname=temasek-hltevzw \
+    ro.ota.version=$(shell date +%F | sed s@-@@g) \
+    ro.ota.manifest=http://temasek.rajasthanautoworks.in/ota/hltevzw.xml
+
+PRODUCT_PACKAGES += \
+    OTAUpdates \
+    libbypass
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Get non-open-source specific aspects
